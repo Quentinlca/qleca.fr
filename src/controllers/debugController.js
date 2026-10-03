@@ -9,6 +9,7 @@ export function debugHandler(req, res) {
         node: process.version,
         uptimeSeconds: Math.round(process.uptime()),
         time: new Date().toISOString(),
+        command: "blink",
       });
 
     case 'POST':
