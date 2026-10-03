@@ -1,6 +1,10 @@
+import { getState } from '../services/metroState.js';
+
 // Une seule fonction qui gère GET et POST
 export function debugHandler(req, res) {
   switch (req.method) {
+    
+    // GET : doit retourner un JSON avec toutes les stations et leur status
     case 'GET':
       return res.json({
         ok: true,
@@ -10,6 +14,7 @@ export function debugHandler(req, res) {
         uptimeSeconds: Math.round(process.uptime()),
         time: new Date().toISOString(),
         command: "blink",
+        payload:getState(),
       });
 
     case 'POST':
